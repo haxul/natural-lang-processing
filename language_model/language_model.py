@@ -53,7 +53,13 @@ def compute_score(s: str) -> float:
         score *= bi_gram_amount / all_word_amount
     return score
 
+# перплексия
+def compute_pp(s: str) -> float:
+    score = compute_score(s)
+    return pow(1 / score, 0.25)
 
+
+print(compute_pp("<s> Георгий любит малину </s>"))
 print(compute_score("<s> Вася любит Катю </s>"))
 print(compute_score("<s> Лена любит мороженое </s>"))
 print(compute_score("<s> Лена рисует малину </s>"))
